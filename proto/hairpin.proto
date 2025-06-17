@@ -1,0 +1,95 @@
+
+syntax = "proto3";
+
+package hairpin;
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/field_mask.proto";
+
+service HairpinSourceService {
+  rpc create(CreateSourceRequest) returns (CreateSourceResponse);
+  rpc delete (DeleteSourceRequest) returns (google.protobuf.Empty);
+  //  rpc list(ListSourceRequest) returns (stream ListSourceResponse);
+}
+
+message CreateSourceRequest { repeated string sources = 1; }
+message CreateSourceResponse { repeated uint64 ids = 1; }
+message DeleteSourceRequest { repeated uint64 ids = 1; }
+/* message ListSourceRequest {
+  google.protobuf.FieldMask mask = 1;
+  FilterScalarString id = 3;
+  FilterScalarString name = 4;
+  FilterScalarString version = 5;
+  FilterPropertyMap properties = 6;
+  FilterVectorString labels = 7;
+}
+
+message ListSourceResponse { repeated Manifest manifest = 1; }
+
+message FilterScalarString {
+  repeated string include = 1;
+  repeated string exclude = 2;
+}
+message FilterVectorString {
+  repeated string include = 1;
+  repeated string exclude = 2;
+  bool include_exact = 3;
+}
+message FilterPropertyMap {
+  message Entry {
+    enum ValueType {
+      UNDEFINED = 0;
+      STRING = 1;
+      FLOAT = 2;
+      INTEGER = 3;
+      BOOLEAN = 4;
+      ARRAY = 5;
+      TABLE = 6;
+    }
+    repeated string include = 1;
+    repeated string exclude = 2;
+    repeated ValueType include_type = 3;
+    repeated ValueType exclude_type = 4;
+  }
+  repeated Entry entries = 1;
+}
+message Manifest {
+  string id = 1;
+  string name = 2;
+  string version = 3;
+  repeated ManifestItem items = 4;
+  PropertyObject properties = 5;
+  repeated string labels = 6;
+}
+message ManifestItem {
+  string id = 1;
+  string name = 2;
+  bytes value = 3;
+  string encryption = 4;
+  PropertyObject properties = 5;
+  repeated string labels = 6;
+}
+message PropertyValue {
+  oneof value {
+    string string = 1;
+    int64 integer = 2;
+    double float = 3;
+    bool boolean = 4;
+    PropertyArray array = 5;
+    PropertyObject object = 6;
+  }
+}
+message PropertyArray { repeated PropertyValue value = 1; }
+message PropertyObject {
+  message Item {
+    string name = 1;
+    PropertyValue value = 2;
+  }
+  repeated Item items = 1;
+}
+enum ManifestSource {
+  UNKNOWN = 0;
+  INTERNAL_DISK = 1;
+  EXTERNAL_DISK = 2;
+  REMOTE = 3;
+} */

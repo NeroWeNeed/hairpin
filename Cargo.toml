@@ -1,13 +1,25 @@
-[package]
-name = "thumbkey"
-version = "0.1.0"
-edition = "2021"
+[workspace]
+members = [ "hairpin", "hairpin-daemon", "libmount", "manifest"]
+resolver = "3"
 
-[dependencies]
+[workspace.dependencies]
 libc = "0.2.0"
 thiserror = "2.0.11"
-tokio = {version = "1.43.0", features = ["rt-multi-thread","macros","time","signal"]}
+tokio = "1.43.0" 
 tokio-util = "0.7.13"
-[build-dependencies]
 bindgen = "0.71.0"
-[features]
+toml = "0.8.23"
+serde = "1.0.219"
+libmount = { path = "./libmount" }
+manifest = { path = "./manifest" }
+hairpin-cli = { path = "./hairpin" }
+hairpin-daemon = { path = "./hairpin-daemon" }
+
+tonic = "0.13.1"
+tonic-build = "0.13.1"
+prost = "0.13.1"
+prost-types = "0.13.1"
+http = "1.3.1"
+clap = "4.5.40"
+clap_derive = "4.5.40"
+uuid = "1.17.0"

@@ -1,0 +1,14 @@
+[package]
+name = "manifest"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+toml = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+tokio = { workspace = true, features = ["fs"], optional = true }
+thiserror = { workspace = true, optional = true }
+builder = { git = "https://github.com/NeroWeNeed/builder.git" }
+
+[features]
+resolver = ["dep:tokio","dep:thiserror"]

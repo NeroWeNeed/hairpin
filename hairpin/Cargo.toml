@@ -1,0 +1,22 @@
+[package]
+name = "hairpin"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { workspace = true, features = ["derive"] }
+clap_derive = { workspace = true }
+uuid = { workspace = true, features = ["v4"] }
+manifest = { workspace = true }
+hairpin-daemon = { workspace = true, features = ["cli"] }
+toml = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+
+[lib]
+name = "hairpin"
+path = "src/lib.rs"
+[[bin]]
+name = "hairpin"
+path = "src/hairpin.rs"

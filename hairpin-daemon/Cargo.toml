@@ -1,0 +1,22 @@
+[package]
+name = "hairpin-daemon"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { workspace = true }
+tonic = { workspace = true }
+manifest = { workspace = true, features = ["resolver"] }
+prost = { workspace = true }
+prost-types = { workspace = true }
+http = { workspace = true }
+thiserror = { workspace = true }
+clap = { workspace = true, optional = true, features = ["derive"] }
+clap_derive = { workspace = true, optional = true }
+
+[build-dependencies]
+tonic-build = { workspace = true }
+
+[features]
+default-features = ["cli"]
+cli = ["dep:clap","dep:clap_derive"]
