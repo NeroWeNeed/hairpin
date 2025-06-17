@@ -1,2 +1,2 @@
-# thumbkey
-Tool for managing usb flash drives with sensitive information
+# hairpin
+Tool for handling the last mile of secrets
